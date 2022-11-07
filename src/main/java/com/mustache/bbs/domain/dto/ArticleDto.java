@@ -1,5 +1,10 @@
 package com.mustache.bbs.domain.dto;
 
+import lombok.Getter;
+import lombok.ToString;
+
+@Getter
+@ToString
 public class ArticleDto {
     private Long id;
     private String title;
@@ -10,4 +15,11 @@ public class ArticleDto {
         this.title = title;
         this.content = content;
     }
+
+    public String toString() {
+        return "ArticleDto{" +
+                "title='"+ title + '\''+ ", content='"+ content + '\''+ '}';
+    }
+
+
 }
