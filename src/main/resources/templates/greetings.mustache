@@ -1,5 +1,7 @@
 <!--Mustache 프레임웍은 .mustache가 붙어 있는 파일을 읽어 view로 씀-->
+{{>layouts/header}}
+  <div>
+    <h3>Hello, {{username}}</h3>
+  </div>
 
-<div>
-    <h1>{{username}} Hello! </h1>
-</div>
+{{>layouts/footer}}
