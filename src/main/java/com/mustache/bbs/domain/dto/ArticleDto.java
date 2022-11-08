@@ -1,5 +1,6 @@
 package com.mustache.bbs.domain.dto;
 
+import com.mustache.bbs.domain.entitiy.Article;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -21,5 +22,8 @@ public class ArticleDto {
                 "title='"+ title + '\''+ ", content='"+ content + '\''+ '}';
     }
 
+    public Article toEntity(){
+        return new Article(this.title);
+    }
 
 }
