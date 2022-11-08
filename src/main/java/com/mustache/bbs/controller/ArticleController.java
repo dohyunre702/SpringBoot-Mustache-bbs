@@ -5,9 +5,7 @@ import com.mustache.bbs.domain.entitiy.Article;
 import com.mustache.bbs.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/articles")
@@ -26,19 +24,13 @@ public class ArticleController {
         return "articles/new";
     }
 
-    @PostMapping(value="") //articles
+    @PostMapping(value="/new") //articles
     public String createArticle(ArticleDto form) {
         //로그 : 서버에서 일어나는 일 기록 (not println)
         log.info(form.toString());
+        Article article = form.toEntity();
+        articleRepository.save(article);
         return "";
     }
 
-    @PostMapping("")
-    public String add(ArticleDto articleDto) {
-        log.info(articleDto.getTitle());
-        Article savedArticle = articleRepository.save(articleDto.toEntity());
-        log.info("generatedId:{}", savedArticle.getId());
-
-        return"";
-    }
 }

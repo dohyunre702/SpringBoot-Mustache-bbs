@@ -23,7 +23,7 @@ public class ArticleDto {
     }
 
     public Article toEntity(){
-        return new Article(this.title);
+        return new Article(title, content);
     }
 
 }
